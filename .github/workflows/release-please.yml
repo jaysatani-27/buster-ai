@@ -1,0 +1,69 @@
+name: Update Version
+
+on:
+  push:
+    branches:
+      - main
+
+# Add permissions configuration
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version-bump:
+    runs-on: ubuntu-latest
+    
+    # Add condition to skip if last commit was a release
+    if: "!startsWith(github.event.head_commit.message, 'chore(release)')"
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history
+          token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+
+      # Step 2: Determine Version
+      - name: Determine Version
+        id: get_version
+        run: |
+          if [ ! -f "version.txt" ]; then
+            echo "0.0.1" > version.txt
+          fi
+          
+          CURRENT_VERSION=$(cat version.txt)
+          echo "Current Version: $CURRENT_VERSION"
+          
+          # Split version into components
+          IFS='.' read -r -a version_parts <<< "$CURRENT_VERSION"
+          MAJOR="${version_parts[0]}"
+          MINOR="${version_parts[1]}"
+          PATCH="${version_parts[2]}"
+          
+          # Increment patch version
+          NEW_PATCH=$((PATCH + 1))
+          NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+          
+          echo "New Version: $NEW_VERSION"
+          
+          # Export versions for later steps
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      # Step 3: Update version.txt if version changes
+      - name: Update version.txt
+        if: env.CURRENT_VERSION != env.NEW_VERSION
+        run: |
+          echo "$NEW_VERSION" > version.txt
+
+      # Step 4: Commit and Push Changes
+      - name: Commit and Push Changes
+        if: env.CURRENT_VERSION != env.NEW_VERSION
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add version.txt
+          git commit -m "chore(release): update version to $NEW_VERSION"
+          git push "https://${{ github.actor }}:${{ secrets.MY_RELEASE_PLEASE_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:main

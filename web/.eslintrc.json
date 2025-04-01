@@ -1,0 +1,15 @@
+{
+  "extends": "next/core-web-vitals",
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "off",
+    "no-empty-pattern": "off",
+    "no-undef": "error",
+    "react/no-children-prop": "off"
+  }
+}

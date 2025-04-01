@@ -1,0 +1,9 @@
+pub const POSTGRES_INSTRUCTIONS: &'static str = "Use PostgreSQL syntax";
+pub const MYSQL_INSTRUCTIONS: &'static str = "Use MySQL syntax";
+pub const MARIADB_INSTRUCTIONS: &'static str = "Use MariaDB syntax";
+pub const SQLSERVER_INSTRUCTIONS: &'static str = "Use SQL Server syntax";
+pub const SNOWFLAKE_INSTRUCTIONS: &'static str = "Use Snowflake syntax";
+pub const REDSHIFT_INSTRUCTIONS: &'static str = "Use Redshift syntax";
+pub const DATABRICKS_INSTRUCTIONS: &'static str = "Use Databricks syntax";
+pub const BIGQUERY_INSTRUCTIONS: &'static str = "Use BigQuery syntax";
+pub const SUPABASE_INSTRUCTIONS: &'static str = "Use Supabase syntax";

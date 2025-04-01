@@ -1,0 +1,86 @@
+.dot-typing {
+  position: relative;
+  left: -9999px;
+  width: var(--dot-size, 10px);
+  height: var(--dot-size, 10px);
+  border-radius: 5px;
+  background-color: currentColor;
+  color: currentColor;
+  box-shadow:
+    9984px 0 0 0 currentColor,
+    9999px 0 0 0 currentColor,
+    10014px 0 0 0 currentColor;
+  animation: dot-typing 1.5s infinite linear;
+}
+
+@keyframes dot-typing {
+  0% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+  16.667% {
+    box-shadow:
+      9984px var(--dot-size, 10px) 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+  33.333% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+  50% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px var(--dot-size, 10px) 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+  66.667% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+  83.333% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px var(--dot-size, 10px) 0 0 currentColor;
+  }
+  100% {
+    box-shadow:
+      9984px 0 0 0 currentColor,
+      9999px 0 0 0 currentColor,
+      10014px 0 0 0 currentColor;
+  }
+}
+
+.indeterminate-progress-bar {
+  height: 4px;
+  //background-color: rgba(202, 202, 202, 0.2);
+  width: 100%;
+  overflow: hidden;
+}
+
+.indeterminate-progress-bar-value {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(112, 112, 112);
+  animation: indeterminateAnimation 1s infinite linear;
+  transform-origin: 0% 50%;
+}
+
+@keyframes indeterminateAnimation {
+  0% {
+    transform: translateX(0) scaleX(0);
+  }
+  40% {
+    transform: translateX(0) scaleX(0.4);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.5);
+  }
+}
