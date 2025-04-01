@@ -1,0 +1,15 @@
+.monaco-editor {
+  .monaco-editor-overlaymessage {
+    transform: translateY(5px) !important;
+    padding-bottom: 0 !important;
+
+    .message {
+      background: white;
+      box-shadow: 0px 1px 0.5px 0px rgba(0, 0, 0, 0.05); //same as tooltip
+    }
+
+    .anchor.below {
+      display: none !important;
+    }
+  }
+}

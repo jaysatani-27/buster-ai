@@ -1,0 +1,57 @@
+@import 'antd/dist/reset.css';
+
+.ant-popover-inner, //chartjs legend
+.busterv2-popover-inner,
+.busterv2-tooltip-inner,
+.busterv2-dropdown,
+.busterv2-dropdown-menu-submenu-popup,
+.busterv2-notification-notice,
+.busterv2-message-notice-content,
+.monaco-editor .monaco-editor-overlaymessage .message {
+  @apply rounded;
+  border-width: 0.5px !important;
+  border-color: #e0e0e0 !important;
+  border-style: solid !important;
+
+  .dark & {
+    border-color: #575757 !important;
+    box-shadow: none !important;
+  }
+}
+
+.busterv2-segmented-item-label {
+  @apply flex items-center;
+}
+
+.busterv2-btn .busterv2-btn-icon {
+  @apply flex items-center;
+}
+
+.busterv2-dropdown-trigger {
+  @apply block truncate;
+}
+
+.busterv2-typography.busterv2-typography-disabled {
+  cursor: inherit !important;
+}
+
+.busterv2-select-selector .dropdown-label .subtitle {
+  display: none;
+}
+
+.busterv2-select-selection-item {
+  @apply flex items-center;
+}
+
+.busterv2-select-dropdown {
+  min-width: 204px !important;
+  .busterv2-select-item-option-selected {
+    .check {
+      display: flex !important;
+    }
+  }
+}
+
+.busterv2-typography pre {
+  border-width: 0.5px !important;
+}

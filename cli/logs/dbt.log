@@ -1,0 +1,15 @@
+[0m10:11:41.254969 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b4b6f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b7ced50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b7cf4a0>]}
+[0m10:11:41.258532 [debug] [MainThread]: An error was encountered while trying to send an event
+
+
+============================== 10:11:41.258772 | 8c4dc64d-ac69-441f-a617-03e73c0e10ba ==============================
+[0m10:11:41.258772 [info ] [MainThread]: Running with dbt=1.9.1
+[0m10:11:41.259035 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/dallin/.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt ', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m10:11:41.259522 [error] [MainThread]: Encountered an error:
+Runtime Error
+  dbt_project.yml does not parse to a dictionary
+[0m10:11:41.264844 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": false, "command_wall_clock_time": 0.0560595, "process_in_blocks": "0", "process_kernel_time": 0.111403, "process_mem_max_rss": "107298816", "process_out_blocks": "0", "process_user_time": 0.711051}
+[0m10:11:41.265321 [debug] [MainThread]: Command `cli deps` failed at 10:11:41.265251 after 0.06 seconds
+[0m10:11:41.265532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ba5cb90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b923fb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b922120>]}
+[0m10:11:41.265670 [debug] [MainThread]: An error was encountered while trying to send an event
+[0m10:11:41.265786 [debug] [MainThread]: Flushing usage events
